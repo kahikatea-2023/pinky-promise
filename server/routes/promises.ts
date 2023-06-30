@@ -15,12 +15,10 @@ router.get('/', validateAccessToken, async (req, res) => {
     return
   }
 
-  //----------------//
-  //Make a function to call the query from the database. And change the variables in the name so it calls the correct ones
-  //----------------//
-
   try {
     const displayPromises = await db.getAllPromises()
+    console.log(displayPromises)
+
     res.status(200).json(displayPromises)
   } catch (err) {
     if (err instanceof Error) {
@@ -28,3 +26,5 @@ router.get('/', validateAccessToken, async (req, res) => {
     }
   }
 })
+
+

@@ -6,12 +6,12 @@ export const pledgeDraftSchema = z.object({
   userId: z.string(),
   friendUserId: z.string(),
   status: z.string(),
-  dateCreated: z.date(),
-  dateDue: z.date(),
+  dateDue: z.string(),
 })
 
 export const pledge = pledgeDraftSchema.extend({
   id: z.number(),
+  dateCreated: z.string(),
 })
 
 export type PledgeDraft = z.infer<typeof pledgeDraftSchema>
