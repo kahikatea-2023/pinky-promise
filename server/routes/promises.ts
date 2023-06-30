@@ -2,8 +2,10 @@ import { Router } from 'express'
 
 import * as db from '../db/dataBaseFunctions/promisesDB'
 import { validateAccessToken } from '../auth0'
+import { Pledge, PledgeFrontEnd } from '../../models/pledge_models'
 
 const router = Router()
+
 
 export default router
 
