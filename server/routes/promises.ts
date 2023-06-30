@@ -2,7 +2,6 @@ import { Router } from 'express'
 
 import * as db from '../db/dataBaseFunctions/promisesDB'
 import { validateAccessToken } from '../auth0'
-import { PledgeDraftSchema, Pledge } from '../../models/promise_models'
 
 const router = Router()
 
@@ -16,29 +15,16 @@ router.get('/', validateAccessToken, async (req, res) => {
     return
   }
 
+  //----------------//
+  //Make a function to call the query from the database. And change the variables in the name so it calls the correct ones
+  //----------------//
+
   try {
-    const displayPromises = await db.getPromiseById(auth0Id)
+    const displayPromises = await db.getAllPromises()
     res.status(200).json(displayPromises)
   } catch (err) {
     if (err instanceof Error) {
       res.status(500).json({ err: 'Unable to retrieve promises' })
-    }
-  }
-})
-
-router.post('/', validateAccessToken, async (req, res) => {
-  try {
-    //-------------------------------------//
-    // Is it supposed to be header not body??
-    //------------------------------------//
-    const userPromises = req.body
-    const userPromisesData = PledgeDraftSchema.parse(userPromises)
-    const displayUserPromises = await db.getPromiseById(userPromisesData)
-    res.json(displayUserPromises)
-  } catch (err) {
-    if (err instanceof Error) {
-      console.error(err)
-      res.status(500).json({ err: 'error displaying promises' })
     }
   }
 })
