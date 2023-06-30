@@ -29,8 +29,14 @@ describe('get all the promises', () => {
 
 describe('getPromisesById', () => {
   it('returns the correct information', async () => {
-    const promise = await db.getPromiseById(testDb, '1')
+    const promise = await db.getPromiseById('1', testDb)
 
     expect(promise[0]).toHaveProperty('promiseName')
+    expect(promise[0]).toHaveProperty('promiseDescription')
+    expect(promise[0]).toHaveProperty('userId')
+    expect(promise[0]).toHaveProperty('friendUserId')
+    expect(promise[0]).toHaveProperty('status')
+    expect(promise[0]).toHaveProperty('dateCreated')
+    expect(promise[0]).toHaveProperty('dateDue')
   })
 })
