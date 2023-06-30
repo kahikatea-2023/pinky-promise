@@ -17,7 +17,6 @@ router.get('/', validateAccessToken, async (req, res) => {
 
   try {
     const displayPromises = await db.getAllPromises()
-    console.log(displayPromises)
 
     res.status(200).json(displayPromises)
   } catch (err) {
@@ -26,5 +25,3 @@ router.get('/', validateAccessToken, async (req, res) => {
     }
   }
 })
-
-

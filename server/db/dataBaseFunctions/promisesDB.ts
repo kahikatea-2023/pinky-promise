@@ -5,7 +5,7 @@ export function getAllPromises(db = connection): Promise<Pledge[]> {
   return db('promises').select()
 }
 
-export function getPromiseById(id: string, db = connection): Promise<Pledge[]> {
+export function getPromisesById(id: string, db = connection): Promise<Pledge[]> {
   return db('promises')
     .where('id', id)
     .select(

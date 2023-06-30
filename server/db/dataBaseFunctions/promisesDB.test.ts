@@ -29,7 +29,7 @@ describe('get all the promises', () => {
 
 describe('getPromisesById', () => {
   it('returns the correct information', async () => {
-    const promise = await db.getPromiseById('1', testDb)
+    const promise = await db.getPromisesById('1', testDb)
 
     expect(promise[0]).toHaveProperty('promiseName')
     expect(promise[0]).toHaveProperty('promiseDescription')

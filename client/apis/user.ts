@@ -11,10 +11,10 @@ export async function insertProfile(userDraft: UserDraft, token: string) {
     .send(userDraft)
 }
 
-export async function getUser(token: string): Promise<User[]> {
+export async function getUser(token: string): Promise<User> {
   const res = await request
     .get(rootUrl)
     .set('Authorization', `Bearer ${token}`)
     .set('Content-Type', 'application/json')
-  return res.body as User[]
+  return res.body as User
 }

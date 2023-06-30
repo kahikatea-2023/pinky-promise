@@ -3,7 +3,7 @@ import { Pledge } from '../../models/pledge_models'
 
 const rootUrl = '/api/v1/promises'
 
-export async function getAllPromise(token: string): Promise<Pledge[]> {
+export async function getAllPromisesByUserId(token: string): Promise<Pledge[]> {
   const res = await request
     .get(rootUrl)
     .set('Authorization', `Bearer ${token}`)
