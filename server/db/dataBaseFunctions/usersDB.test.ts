@@ -4,6 +4,7 @@ import config from '../knexfile'
 import * as db from './usersDB'
 const testDb = knex(config.test)
 
+
 beforeAll(async () => {
   await testDb.migrate.latest()
 })
