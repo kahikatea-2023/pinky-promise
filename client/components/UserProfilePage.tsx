@@ -5,6 +5,7 @@ import { useMutation } from 'react-query'
 import { useAuth0 } from '@auth0/auth0-react'
 import useFetchUser from '../hooks/useFetchProfile'
 import { insertProfile } from '../apis/user'
+import Loading from './UI/Loading'
 
 function UserProfilePage() {
   const navigate = useNavigate()
@@ -21,7 +22,7 @@ function UserProfilePage() {
   })
 
   if (isLoading) {
-    return <div>Loading ...</div>
+    return <Loading />
   }
 
   if (!isAuthenticated && !user) {

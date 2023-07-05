@@ -4,6 +4,7 @@ import { getPromiseByPromiseId, resolvePromise } from '../../apis/promises'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import Promise from '../Promise/Promise'
+import Loading from '../UI/Loading'
 
 function PromiseDetailPage() {
   const params = useParams()
@@ -37,7 +38,7 @@ function PromiseDetailPage() {
   }
 
   if (isLoading) {
-    return <div>Loading ...</div>
+    return <Loading />
   }
 
   if (!isAuthenticated && !user) {

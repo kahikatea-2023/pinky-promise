@@ -9,6 +9,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { addPromise } from '../../apis/promises'
 import AnimationComponent from './PromiseMadeAnimation'
 import { useAnimation } from 'framer-motion'
+import Loading from '../UI/Loading'
 
 function AddPromisePage() {
   const navigate = useNavigate()
@@ -30,7 +31,7 @@ function AddPromisePage() {
   })
 
   if (isLoading) {
-    return <div>Loading ...</div>
+    return <Loading />
   }
 
   if (!isAuthenticated && !user) {
@@ -55,9 +56,7 @@ function AddPromisePage() {
 
   return (
     <div className="relative ">
-      <AddPromiseForm
-        handleSubmit={handleSubmit}
-      />
+      <AddPromiseForm handleSubmit={handleSubmit} />
       <AnimationComponent controls={controls} />
     </div>
   )
