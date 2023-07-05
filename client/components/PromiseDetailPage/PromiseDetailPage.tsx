@@ -26,10 +26,7 @@ function PromiseDetailPage() {
     }: {
       promiseUpdate: PledgeStatusUpdate
       token: string
-    }) => resolvePromise(promiseUpdate, token),
-    onSuccess: () => {
-      console.log('well done')
-    },
+    }) => resolvePromise(promiseUpdate, token)   
   })
 
   function handleBroken() {
